@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Candido Luiz | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="wave-header w-full"></div>
+    
+    <header class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm bg-[var(--bg-primary)] shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-[var(--primary)] logo" data-pt="Lucas Candido Luiz" data-en="Lucas Candido Luiz" onclick="scrollToTop()">Lucas Candido Luiz</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="nav-link active-nav" data-pt="Sobre" data-en="About">Sobre</a>
+                <a href="#skills" class="nav-link" data-pt="Habilidades" data-en="Skills">Habilidades</a>
+                <a href="#projects" class="nav-link" data-pt="Projetos" data-en="Projects">Projetos</a>
+                <a href="#contact" class="nav-link" data-pt="Contato" data-en="Contact">Contato</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="language-switcher flex items-center" id="languageSwitcher">
+                    <span class="text-sm font-medium" data-pt="PT" data-en="EN">PT</span>
+                    <i class="fas fa-globe ml-2 text-[var(--primary)]"></i>
+                </div>
+                
+                <div class="theme-switcher" id="themeSwitcher">
+                    <i class="fas fa-moon text-[var(--primary)]"></i>
+                </div>
+                
+                <div class="md:hidden" id="mobileMenuButton">
+                    <i class="fas fa-bars text-xl text-[var(--primary)]"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="md:hidden hidden bg-[var(--bg-secondary)] transition-all duration-300" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#about" class="nav-link py-2" data-pt="Sobre" data-en="About">Sobre</a>
+                <a href="#skills" class="nav-link py-2" data-pt="Habilidades" data-en="Skills">Habilidades</a>
+                <a href="#projects" class="nav-link py-2" data-pt="Projetos" data-en="Projects">Projetos</a>
+                <a href="#contact" class="nav-link py-2" data-pt="Contato" data-en="Contact">Contato</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="flex-grow">
+        <section class="py-16 md:py-24 px-4">
+            <div class="container mx-auto max-w-5xl">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
+                        <div class="w-64 h-64 mx-auto md:mx-0 rounded-full overflow-hidden profile-image-container">
+                            <img id="github-profile-image" class="w-full h-full profile-image hidden" alt="Lucas Candido Luiz" />
+                            
+                            <div id="profile-image-loading" class="profile-image-loading">
+                                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--primary)]"></div>
+                            </div>
+                            
+                            <svg id="profile-image-fallback" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full bg-[var(--secondary)] hidden">
+                                <path fill="var(--primary)" d="M100,20 C130,20 155,45 155,75 C155,105 130,130 100,130 C70,130 45,105 45,75 C45,45 70,20 100,20 Z"></path>
+                                <circle cx="100" cy="65" r="30" fill="var(--bg-primary)"></circle>
+                                <path fill="var(--primary)" d="M50,130 C50,100 150,100 150,130 L150,180 L50,180 Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Lucas Candido Luiz</h1>
+                        <h2 class="text-xl md:text-2xl text-[var(--text-secondary)] mb-6 animate-fade-in delay-100" data-pt="Desenvolvedor Back-End | Arquitetura Limpa | SQL & APIs" data-en="Back-End Developer | Clean Architecture | SQL & APIs">Desenvolvedor Back-End | Arquitetura Limpa | SQL & APIs</h2>
+                        
+                        <p class="mb-8 animate-fade-in delay-200" data-pt="Especialista em desenvolvimento de APIs REST, bancos de dados e arquitetura de software com foco em código limpo e boas práticas." data-en="Specialist in REST API development, databases and software architecture with a focus on clean code and best practices.">Especialista em desenvolvimento de APIs REST, bancos de dados e arquitetura de software com foco em código limpo e boas práticas.</p>
+                        
+                        <div class="flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in delay-300">
+                            <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-medium" data-pt="Entre em contato" data-en="Get in touch">Entre em contato</a>
+                            <a href="assets/Curriculum.pdf" download="Lucas_Candido_Luiz_CV.pdf" class="btn-primary px-6 py-3 rounded-full font-medium flex items-center" data-pt="Baixar CV" data-en="Download CV">
+                                <i class="fas fa-download mr-2"></i>
+                                <span data-pt="Baixar CV" data-en="Download CV">Baixar CV</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="py-16 px-4 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl font-bold section-title mb-12" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="animate-fade-in">
+                        <h3 class="text-xl font-semibold mb-4" data-pt="Quem sou eu" data-en="Who I am">Quem sou eu</h3>
+                        <p class="mb-4" data-pt="Sou um desenvolvedor Back-End apaixonado por criar soluções robustas e escaláveis. Com formação em Análise e Desenvolvimento de Sistemas e pós-graduação em Engenharia de Software, estou sempre buscando aprimorar minhas habilidades e conhecimentos." data-en="I'm a Back-End developer passionate about creating robust and scalable solutions. With a degree in Systems Analysis and Development and post-graduation in Software Engineering, I'm always looking to improve my skills and knowledge.">Sou um desenvolvedor Back-End apaixonado por criar soluções robustas e escaláveis. Com formação em Análise e Desenvolvimento de Sistemas e pós-graduação em Engenharia de Software, estou sempre buscando aprimorar minhas habilidades e conhecimentos.</p>
+                        
+                        <p data-pt="Meu foco está no desenvolvimento de APIs REST, bancos de dados e arquitetura de software, sempre aplicando práticas de Clean Code, TDD, DDD e CI/CD para garantir a qualidade e manutenibilidade do código." data-en="My foco is on developing REST APIs, databases and software architecture, always applying Clean Code, TDD, DDD and CI/CD practices to ensure code quality and maintainability.">Meu foco está no desenvolvimento de APIs REST, bancos de dados e arquitetura de software, sempre aplicando práticas de Clean Code, TDD, DDD e CI/CD para garantir a qualidade e manutenibilidade do código.</p>
+                    </div>
+                    
+                    <div class="animate-fade-in delay-100">
+                        <h3 class="text-xl font-semibold mb-4" data-pt="Formação & Experiência" data-en="Education & Experience">Formação & Experiência</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="mr-4 text-[var(--primary)]">
+                                    <i class="fas fa-graduation-cap text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-pt="Análise e Desenvolvimento de Sistemas" data-en="Systems Analysis and Development">Análise e Desenvolvimento de Sistemas</h4>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-pt="Graduação" data-en="Bachelor's Degree">Graduação</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="mr-4 text-[var(--primary)]">
+                                    <i class="fas fa-book text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-pt="Engenharia de Software" data-en="Software Engineering">Engenharia de Software</h4>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-pt="Pós-graduação (em andamento)" data-en="Post-graduation (in progress)">Pós-graduação (em andamento)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="mr-4 text-[var(--primary)]">
+                                    <i class="fas fa-code text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium" data-pt="Desenvolvimento Back-End" data-en="Back-End Development">Desenvolvimento Back-End</h4>
+                                    <p class="text-sm text-[var(--text-secondary)]" data-pt="Especialização em APIs REST e arquitetura de software" data-en="Specialization in REST APIs and software architecture">Especialização em APIs REST e arquitetura de software</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="py-16 px-4">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl font-bold section-title mb-12" data-pt="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-fade-in">
+                        <h3 class="text-xl font-semibold mb-6" data-pt="Linguagens de Programação" data-en="Programming Languages">Linguagens de Programação</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Java</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Python</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">JavaScript</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">C#</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">C/C++</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-bar" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in delay-100">
+                        <h3 class="text-xl font-semibold mb-6" data-pt="Frameworks & Tecnologias" data-en="Frameworks & Technologies">Frameworks & Tecnologias</h3>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <div class="tech-badge">
+                                <i class="fas fa-leaf mr-2 text-green-600"></i>
+                                Spring Boot
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-node-js mr-2 text-green-600"></i>
+                                Node.js
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-database mr-2 text-blue-600"></i>
+                                MySQL
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-database mr-2 text-gray-600"></i>
+                                SQLite
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-chart-bar mr-2 text-yellow-600"></i>
+                                Power BI
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fab fa-python mr-2 text-blue-600"></i>
+                                Pandas
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-calculator mr-2 text-blue-400"></i>
+                                NumPy
+                            </div>
+                            <div class="tech-badge">
+                                <i class="fas fa-paper-plane mr-2 text-orange-500"></i>
+                                Postman
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold mt-10 mb-6" data-pt="Boas Práticas & Arquitetura" data-en="Best Practices & Architecture">Boas Práticas & Arquitetura</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>Clean Code</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>Arquitetura Hexagonal</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>DDD</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>TDD</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>SOLID</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>CI/CD</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>JWT/OAuth2</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-[var(--primary)] mr-2"></i>
+                                <span>REST + Swagger</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="py-16 px-4 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto max-w-5xl">
+                <div class="flex justify-between items-center mb-12">
+                    <h2 class="text-3xl font-bold section-title" data-pt="Projetos em Destaque" data-en="Featured Projects">Projetos em Destaque</h2>
+                    <button id="refreshGithubRepos" class="btn-primary px-4 py-2 rounded-md flex items-center justify-center relative overflow-hidden">
+                        <span id="refreshButtonContent" class="flex items-center">
+                            <i class="fas fa-sync-alt mr-2"></i> 
+                            <span data-pt="Atualizar Projetos" data-en="Refresh Projects">Atualizar Projetos</span>
+                        </span>
+                        <span id="refreshSpinner" class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <div class="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
+                        </span>
+                    </button>
+                </div>
+                
+                <div id="github-projects-loading" class="text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[var(--primary)]"></div>
+                    <p class="mt-4" data-pt="Carregando projetos do GitHub..." data-en="Loading GitHub projects...">Carregando projetos do GitHub...</p>
+                </div>
+                
+                <div id="github-projects-error" class="hidden text-center py-8">
+                    <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-4"></i>
+                    <p class="mb-4" data-pt="Não foi possível carregar os projetos do GitHub." data-en="Failed to load GitHub projects.">Não foi possível carregar os projetos do GitHub.</p>
+                    <button id="retry-github-load" class="btn-primary px-4 py-2 rounded-md">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        <span data-pt="Tentar novamente" data-en="Try again">Tentar novamente</span>
+                    </button>
+                </div>
+                
+                <div id="github-projects" class="grid md:grid-cols-2 gap-8 hidden">
+                    </div>
+                
+                <div id="github-projects-skeleton" class="grid md:grid-cols-2 gap-8">
+                    <div class="project-card animate-fade-in">
+                        <div class="project-skeleton-header">
+                            <div class="h-6 w-40 skeleton rounded"></div>
+                            <div class="h-10 w-10 skeleton rounded-full"></div>
+                        </div>
+                        
+                        <div class="project-skeleton-content">
+                            <div class="h-16 w-full skeleton rounded mb-6"></div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <div class="h-8 w-16 skeleton rounded-full"></div>
+                                <div class="h-8 w-24 skeleton rounded-full"></div>
+                                <div class="h-8 w-20 skeleton rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-skeleton-footer">
+                            <div class="flex justify-between">
+                                <div class="flex gap-4">
+                                    <div class="h-6 w-16 skeleton rounded"></div>
+                                    <div class="h-6 w-16 skeleton rounded"></div>
+                                </div>
+                                <div class="h-10 w-32 skeleton rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card animate-fade-in delay-100">
+                        <div class="project-skeleton-header">
+                            <div class="h-6 w-32 skeleton rounded"></div>
+                            <div class="h-10 w-10 skeleton rounded-full"></div>
+                        </div>
+                        
+                        <div class="project-skeleton-content">
+                            <div class="h-16 w-full skeleton rounded mb-6"></div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <div class="h-8 w-20 skeleton rounded-full"></div>
+                                <div class="h-8 w-16 skeleton rounded-full"></div>
+                                <div class="h-8 w-28 skeleton rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-skeleton-footer">
+                            <div class="flex justify-between">
+                                <div class="flex gap-4">
+                                    <div class="h-6 w-16 skeleton rounded"></div>
+                                    <div class="h-6 w-16 skeleton rounded"></div>
+                                </div>
+                                <div class="h-10 w-32 skeleton rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 animate-fade-in delay-200">
+                    <a href="https://github.com/boltreskh" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full btn-primary">
+                        <i class="fab fa-github mr-2"></i>
+                        <span data-pt="Ver mais projetos no GitHub" data-en="See more projects on GitHub">Ver mais projetos no GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="py-16 px-4">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl font-bold section-title mb-12" data-pt="Entre em Contato" data-en="Get in Touch">Entre em Contato</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-fade-in">
+                        <p class="mb-8" data-pt="Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto interessante ou apenas quer bater um papo, não hesite em entrar em contato!" data-en="I'm always open to new opportunities and collaborations. If you have an interesting project or just want to chat, don't hesitate to get in touch!">Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto interessante ou apenas quer bater um papo, não hesite em entrar em contato!</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-[var(--primary)]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm text-[var(--text-secondary)]" data-pt="Email" data-en="Email">Email</h4>
+                                    <a href="mailto:luizcandidolucas@hotmail.com" class="hover:text-[var(--primary)]">luizcandidolucas@hotmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mr-4">
+                                    <i class="fab fa-linkedin-in text-[var(--primary)]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm text-[var(--text-secondary)]" data-pt="LinkedIn" data-en="LinkedIn">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/lucascandidoluiz/" target="_blank" class="hover:text-[var(--primary)]">linkedin.com/in/lucascandidoluiz</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mr-4">
+                                    <i class="fab fa-github text-[var(--primary)]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm text-[var(--text-secondary)]" data-pt="GitHub" data-en="GitHub">GitHub</h4>
+                                    <a href="https://github.com/boltreskh" target="_blank" class="hover:text-[var(--primary)]">github.com/boltreskh</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in delay-100">
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium" data-pt="Nome" data-en="Name">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-md border border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium" data-pt="Email" data-en="Email">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-md border border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block mb-2 text-sm font-medium" data-pt="Mensagem" data-en="Message">Mensagem</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-md border border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary px-6 py-3 rounded-md font-medium w-full" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
+                        </form>
+                        
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-md">
+                            <p data-pt="Mensagem enviada com sucesso! Entrarei em contato em breve." data-en="Message sent successfully! I'll get back to you soon.">Mensagem enviada com sucesso! Entrarei em contato em breve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="wave-footer w-full"></div>
+    
+    <footer class="bg-[var(--primary)] text-white py-8 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">Lucas Candido Luiz</h2>
+                    <p class="text-sm opacity-80" data-pt="Desenvolvedor Back-End | Arquitetura Limpa | SQL & APIs" data-en="Back-End Developer | Clean Architecture | SQL & APIs">Desenvolvedor Back-End | Clean Architecture | SQL & APIs</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/lucascandidoluiz/" target="_blank" class="contact-icon w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/boltreskh" target="_blank" class="contact-icon w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:luizcandidolucas@hotmail.com" class="contact-icon w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-white border-opacity-20 text-center text-sm opacity-80">
+                <p>&copy; <span id="currentYear">2023</span> Lucas Candido Luiz. <span data-pt="Todos os direitos reservados." data-en="All rights reserved.">Todos os direitos reservados.</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

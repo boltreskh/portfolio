@@ -1,0 +1,458 @@
+/* Importa a fonte Poppins do Google Fonts para um visual moderno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Definição das variáveis CSS para cores e transições.
+   Isso facilita a mudança de tema (claro/escuro) e a manutenção. */
+:root {
+    --primary: #2e4d3f; /* Cor principal, como verde escuro */
+    --secondary: #4a7c69; /* Cor secundária, um verde um pouco mais claro */
+    --accent: #6d9886; /* Cor de destaque */
+    --text-primary: #333; /* Cor principal do texto */
+    --text-secondary: #666; /* Cor secundária do texto */
+    --bg-primary: #f8f9fa; /* Cor de fundo principal (claro) */
+    --bg-secondary: #e9ecef; /* Cor de fundo secundária (um pouco mais escura) */
+    --card-bg: #ffffff; /* Fundo dos cartões */
+    --card-border: rgba(0, 0, 0, 0.1); /* Borda dos cartões */
+    --card-shadow: rgba(0, 0, 0, 0.1); /* Sombra dos cartões */
+    --transition: all 0.3s ease; /* Transição suave para animações */
+}
+
+/* Tema escuro: redefinição das variáveis para cores escuras */
+.dark {
+    --primary: #4a7c69;
+    --secondary: #6d9886;
+    --accent: #8fb5a7;
+    --text-primary: #e9ecef;
+    --text-secondary: #ced4da;
+    --bg-primary: #1a1a1a; /* Fundo principal escuro */
+    --bg-secondary: #2d2d2d; /* Fundo secundário escuro */
+    --card-bg: #333333; /* Fundo dos cartões escuro */
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos globais do corpo da página */
+body {
+    font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins */
+    color: var(--text-primary); /* Usa a cor de texto primária do tema */
+    background-color: var(--bg-primary); /* Usa a cor de fundo primária do tema */
+    transition: var(--transition); /* Transição suave para mudanças de tema */
+    scroll-behavior: smooth; /* Habilita a rolagem suave nativa do navegador */
+}
+
+/* Estilo para os títulos de seção (ex: "Sobre Mim", "Habilidades") */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* Linha decorativa abaixo dos títulos de seção */
+.section-title::after {
+    content: ''; /* Conteúdo vazio para criar a linha */
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50%; /* A linha cobre metade da largura do título */
+    height: 3px;
+    background-color: var(--primary); /* Cor da linha igual à cor primária */
+    transition: var(--transition); /* Transição suave */
+}
+
+/* Estilo para os badges de tecnologia (ex: "Spring Boot", "MySQL") */
+.tech-badge {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px; /* Borda arredondada para parecer um pílula */
+    font-size: 0.875rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    margin: 0.25rem;
+}
+
+/* Efeito ao passar o mouse sobre os badges de tecnologia */
+.tech-badge:hover {
+    transform: translateY(-3px); /* Move ligeiramente para cima */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+/* Estilo para os cartões de projeto */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 1rem; /* Cantos arredondados */
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%; /* Garante que os cartões tenham a mesma altura em um grid */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 16px var(--card-shadow);
+}
+
+/* Efeito ao passar o mouse sobre os cartões de projeto */
+.project-card:hover {
+    transform: translateY(-5px); /* Move ligeiramente para cima */
+    box-shadow: 0 15px 25px var(--card-shadow); /* Sombra mais pronunciada */
+}
+
+/* Estilo para os links de navegação no cabeçalho */
+.nav-link {
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Linha decorativa abaixo dos links de navegação */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Largura inicial zero */
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre os links de navegação: a linha se expande */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Estilo para o link de navegação ativo: a linha fica sempre visível */
+.active-nav::after {
+    width: 100%;
+}
+
+/* Estilo para o botão primário (ex: "Entre em contato") */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre o botão primário */
+.btn-primary:hover {
+    background-color: var(--secondary); /* Muda para a cor secundária */
+    transform: translateY(-2px); /* Move ligeiramente para cima */
+}
+
+/* Estilo para a onda superior do cabeçalho */
+.wave-header {
+    height: 120px;
+    background-color: var(--primary);
+    /* Cria um formato de onda na parte inferior */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px));
+}
+
+/* Estilo para a onda inferior do rodapé */
+.wave-footer {
+    height: 120px;
+    background-color: var(--primary);
+    /* Cria um formato de onda na parte superior */
+    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Barra de progresso para as habilidades */
+.skill-progress {
+    height: 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden; /* Garante que a barra interna não transborde */
+}
+
+/* Barra de progresso preenchida */
+.skill-progress-bar {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 4px;
+    transition: width 1s ease-in-out; /* Animação suave da largura */
+}
+
+/* Estilo para os ícones de contato */
+.contact-icon {
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre os ícones de contato */
+.contact-icon:hover {
+    transform: scale(1.2); /* Aumenta o tamanho do ícone */
+    color: var(--primary); /* Muda a cor para a cor primária */
+}
+
+/* Estilo para os botões de alternância de idioma e tema */
+.language-switcher, .theme-switcher {
+    cursor: pointer; /* Indica que é clicável */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre os botões de alternância */
+.language-switcher:hover, .theme-switcher:hover {
+    background-color: var(--bg-secondary); /* Muda o fundo ao passar o mouse */
+}
+
+/* Animação de fade-in para elementos que aparecem suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); } /* Começa invisível e um pouco para baixo */
+    to { opacity: 1; transform: translateY(0); } /* Termina visível e na posição original */
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards; /* Aplica a animação */
+}
+
+/* Atrasos para a animação de fade-in, criando um efeito em cascata */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Flexbox para o conteúdo do cartão de projeto, para que o botão fique sempre no final */
+.project-card .p-6 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .btn-container {
+    margin-top: auto; /* Empurra o contêiner do botão para o final */
+}
+
+/* Estilo para o esqueleto de carregamento (efeito de "loading") */
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-primary) 50%, var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite; /* Animação de brilho */
+}
+
+/* Animação para o efeito de "loading" */
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Pequeno círculo de cor para indicar a linguagem do repositório */
+.repo-language-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Estilo para a imagem de perfil */
+.profile-image {
+    border: 4px solid var(--primary); /* Borda colorida */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    object-fit: cover; /* Garante que a imagem preencha o contêiner */
+}
+
+/* Efeito ao passar o mouse sobre a imagem de perfil */
+.profile-image:hover {
+    transform: scale(1.03); /* Aumenta ligeiramente o tamanho */
+}
+
+/* Contêiner da imagem de perfil, usado para posicionar o placeholder */
+.profile-image-container {
+    position: relative;
+}
+
+/* Estilo para o placeholder de carregamento da imagem de perfil */
+.profile-image-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+}
+
+/* Estilo para o cabeçalho do cartão de projeto */
+.project-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo para o ícone dentro do cartão de projeto */
+.project-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre o cartão de projeto: o ícone gira */
+.project-card:hover .project-icon {
+    transform: rotate(15deg);
+}
+
+/* Estilo para o conteúdo principal do cartão de projeto */
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para as meta informações do projeto (data, linguagem) */
+.project-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--card-border);
+}
+
+/* Estilo para cada item de meta informação do projeto */
+.project-meta-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Estilo para o rodapé do cartão de projeto */
+.project-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contêiner para as estatísticas do projeto (estrelas, forks) */
+.project-stats {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Estilo para cada estatística individual do projeto */
+.project-stat {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Estilo para os ícones das estatísticas do projeto */
+.project-stat i {
+    margin-right: 0.5rem;
+    color: var(--primary);
+}
+
+/* Estilo para o botão "Ver Código" do GitHub */
+.btn-github {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+/* Efeito ao passar o mouse sobre o botão do GitHub */
+.btn-github:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Estilo para o botão de voltar ao topo */
+.back-to-top {
+    position: fixed; /* Fixo na tela */
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%; /* Redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0; /* Invisível por padrão */
+    visibility: hidden; /* Escondido para não ser clicável quando invisível */
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+/* Classe para tornar o botão de voltar ao topo visível */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efeito ao passar o mouse sobre o botão de voltar ao topo */
+.back-to-top:hover {
+    background-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+/* Melhorias nos estilos de esqueleto de carregamento para projetos */
+.project-skeleton-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-skeleton-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-skeleton-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--card-border);
+}
+
+/* Efeito ao passar o mouse sobre o logo no cabeçalho */
+.logo {
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--accent); /* Muda a cor ao passar o mouse */
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: var(--transition);
+}
+
+.logo:hover::after {
+    width: 100%; /* A linha se expande ao passar o mouse */
+}
